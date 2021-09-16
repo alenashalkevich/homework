@@ -1,8 +1,6 @@
 package com.exadel.homework1;
 
-import java.util.Locale;
-
-public class Operatords {
+public class Operators {
     public static void main(String[] args) {
         byte hours1 = 24;
         int minutes1 = 60;
