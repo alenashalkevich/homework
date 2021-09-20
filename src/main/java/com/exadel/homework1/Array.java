@@ -2,7 +2,7 @@ package com.exadel.homework1;
 
 import java.util.ArrayList;
 
-public class Arrays {
+public class Array {
     public static void main(String[] args) {
         int[][] array = new int[5][10];
         int[][] newArray = fillArrayRandomly(array, -1, 5);

@@ -33,14 +33,12 @@ public class Strings {
 
     public static boolean isPresent(String word, String sentence)
     {
-        return sentence.toLowerCase().contains(word.toLowerCase());
+        return sentence.startsWith(word);
     }
 
     public static boolean isStart(String word, String sentence)
     {
-        String [] wordsArray = sentence.split(" ");
-        String firstWord = wordsArray[0];
-        return firstWord.equalsIgnoreCase(word);
+        return sentence.startsWith(word);
     }
 
     public static boolean isLinksEquals(String sentence1, String sentence2)
@@ -60,7 +58,7 @@ public class Strings {
 
     public static boolean isVariableEmpty(String sentence1)
     {
-        return "".equals(sentence1);
+        return sentence1.isEmpty();
     }
 
     public static int getVariableLength(String sentence1)
