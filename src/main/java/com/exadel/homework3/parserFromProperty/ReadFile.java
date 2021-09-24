@@ -11,16 +11,14 @@ public class ReadFile {
     public static Map<String, String> environmentData(String filePath) {
 
         Map<String, String> dataMap = new HashMap<>();
-        try {
-            File myFile = new File(filePath);
-            FileReader fileReader = new FileReader(myFile);
+        File myFile = new File(filePath);
+        try (FileReader fileReader = new FileReader(myFile)) {
             BufferedReader reader = new BufferedReader(fileReader);
             String line = null;
             while ((line = reader.readLine()) != null) {
                 String[] m = line.split("=");
                 dataMap.put(m[0], m[1]);
             }
-            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
