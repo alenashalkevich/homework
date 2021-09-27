@@ -1,5 +1,6 @@
 package com.exadel.homework2;
 
+import jdk.jfr.StackTrace;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -4,7 +4,6 @@ import com.exadel.homework1.Array;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Transformer {
 
