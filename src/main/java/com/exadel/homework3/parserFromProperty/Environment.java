@@ -7,14 +7,23 @@ import java.util.HashMap;
 @Data
 public class Environment {
 
+    private static Environment envInstance;
+
+    private Environment(String propFileName) {
+        initEnvFields(propFileName);
+    }
+
+    public static Environment getEnvInstance(String propFileName) {
+        if (envInstance == null) {
+            envInstance = new Environment(propFileName);
+        }
+        return envInstance;
+    }
+
     String buildEnv;
     String browser;
     String testEnv;
     HashMap<String, String> dataMap;
-
-    public Environment(String propFileName) {
-        initEnvFields(propFileName);
-    }
 
     public void initEnvFields(String propFileName) {
         EnvironmentPropertyLoader environmentPropertyLoader = new EnvironmentPropertyLoader();

@@ -13,25 +13,23 @@ public class EnvironmentPropertyLoader {
 
     public Map<String, String> loadEnvironmentData(String propFileName) {
 
-        if (this.dataMap == null) {
-            dataMap = new HashMap<>();
-            try (InputStream inputStream = EnvironmentPropertyLoader.class.getClassLoader().getResourceAsStream(propFileName)) {
-                Properties prop = new Properties();
+        dataMap = new HashMap<>();
+        try (InputStream inputStream = EnvironmentPropertyLoader.class.getClassLoader().getResourceAsStream(propFileName)) {
+            Properties prop = new Properties();
 
-                if (inputStream != null) {
-                    prop.load(inputStream);
+            if (inputStream != null) {
+                prop.load(inputStream);
 
-                } else {
-                    throw new FileNotFoundException("The specified properties file '" + propFileName + "' was not found in the classpath");
-                }
-
-                prop.forEach((key, value) -> dataMap.put(key.toString(), value.toString()));
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            } else {
+                throw new FileNotFoundException("The specified properties file '" + propFileName + "' was not found in the classpath");
             }
 
+            prop.forEach((key, value) -> dataMap.put(key.toString(), value.toString()));
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return dataMap;
     }
 }
